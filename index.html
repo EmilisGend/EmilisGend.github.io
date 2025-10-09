@@ -1,11 +1,37 @@
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js').then(reg => {
-        console.log('Service worker registered!', reg);
-      }).catch(err => {
-        console.error('Service worker registration failed:', err);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minimal Stylish Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome!</h1>
+    <div>Minimal, Clean, Beautiful</div>
+  </header>
+  <main>
+    <p>
+      This page features clear structure, gentle colors, and a modern layout using only HTML and CSS via a linked stylesheet.
+    </p>
+    <button onclick="alert('Hello from EmilisGend!')">Click Me</button>
+  </main>
+  <footer>
+    &copy; 2025 Example by EmilisGend
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(reg => {
+          console.log('Service worker registered!', reg);
+        }).catch(err => {
+          console.error('Service worker registration failed:', err);
+        });
       });
-    });
-  }
-</script>
+    }
+  </script>
+</body>
+</html>
+
