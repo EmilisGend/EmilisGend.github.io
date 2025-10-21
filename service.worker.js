@@ -1,27 +1,27 @@
-const CACHE_NAME = 'birdwatch-cache-v1';
-const OFFLINE_URLS = [
-    '/',
-    '/index.html',
-    '/manifest.json',
-    'https://fonts.googleapis.com/css?family=Roboto+Condensed:300%7CCinzel+Decorative:700',
-    'https://faadia.github.io/Birdwatching/images/dove.png',
-    'https://faadia.github.io/Birdwatching/images/favorite-1_th.jpg',
-    'https://faadia.github.io/Birdwatching/images/favorite-2_th.jpg',
-    'https://faadia.github.io/Birdwatching/images/favorite-3_th.jpg',
-    'https://faadia.github.io/Birdwatching/images/favorite-4_th.jpg',
-    // add other necessary resources here
+const CACHE_NAME = 'birdwatching-cache-v1';
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/style.css',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png',
+  // add other assets you want cached
 ];
 
 self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(OFFLINE_URLS))
-    );
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        return cache.addAll(urlsToCache);
+      })
+  );
 });
 
 self.addEventListener('fetch', event => {
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => response || fetch(event.request))
-    );
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        return response || fetch(event.request);
+      })
+  );
 });
