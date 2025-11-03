@@ -2,7 +2,7 @@
   "name": "Birdwatching",
   "short_name": "Birdwatch",
   "description": "A sample birdwatching site showcasing web layout and typography.",
-  "start_url": "/EmilisGend.github.io/index.html",  // Update this for GitHub Pages
+  "start_url": ".",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#a9a9a9",
