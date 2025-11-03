@@ -54,18 +54,19 @@
 </footer>
 
 <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-          console.log('Service Worker registration failed:', error);
-        });
-    });
-  }
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function(reg) {
+        console.log('ServiceWorker registration succeeded:', reg);
+      })
+      .catch(function(err) {
+        console.error('ServiceWorker registration failed:', err);
+      });
+  });
+}
 </script>
+
 
   </body>
 </html>
